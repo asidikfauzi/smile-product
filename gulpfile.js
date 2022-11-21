@@ -143,6 +143,18 @@ gulp.task("watch:build", function () {
   gulp.watch(path.src.plugins, gulp.series("plugins:build"));
 });
 
+function watch() {
+  browserSync.init({
+      // You can tell browserSync to use this directory and serve it as a mini-server
+      server: { baseDir: "./src" },
+      notify: false
+  });
+  gulp.watch("src/*.html").on('change', browserSync.reload);
+}
+
+var build = gulp.parallel(watch);
+gulp.task('default', build);
+
 // Dev Task
 gulp.task(
   "default",
