@@ -474,6 +474,10 @@ a:hover {
   box-shadow: none;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .logo {
   margin-top: 10px;
   display: inline-block;
